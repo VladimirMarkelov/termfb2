@@ -1,0 +1,20 @@
+# The application never changes this configuration file
+# so everything you add to the file is preserved.
+# If you uncomment the options below you'll get a portable
+# application with white text on black background
+
+## save information about all books to database
+#useDb = 0
+
+## color of the text for reader
+## Set color to 'default' if you want to use the color from
+## the current theme (default is 'black')
+#textColor = white
+
+## color of the background for reader
+## Set color to 'default' if you want to use the color from
+## the current theme (default is 'white')
+#backColor = black
+
+## add spaces to make all book lines the same size
+#justify = 1
