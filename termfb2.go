@@ -21,6 +21,9 @@ const (
 	DBCOLLECTION = "books"
 	VENDOR       = ".rionnag"
 	APPNAME      = "termfb2"
+
+    minWidth = 25
+    minHeight = 14
 )
 
 // ControlList is a list of all UI widgets that are managed by
@@ -48,7 +51,7 @@ type ControlList struct {
 
 // createView creates the main Window - a book reader view
 func createView(controls *ControlList, conf *cf.Config) {
-	controls.mainWindow = ui.AddWindow(0, 0, 22, 7, "TermFB2")
+	controls.mainWindow = ui.AddWindow(0, 0, 12, 7, "TermFB2")
 	controls.mainWindow.SetPack(ui.Vertical)
 
 	controls.mainWindow.OnKeyDown(func(ev ui.Event, data interface {}) bool {
@@ -58,7 +61,7 @@ func createView(controls *ControlList, conf *cf.Config) {
 		}
 		return false
 	}, nil)
-	controls.reader = ui.CreateTextReader(controls.mainWindow, 45, 24, 1)
+	controls.reader = ui.CreateTextReader(controls.mainWindow, minWidth, minHeight, 1)
 	controls.reader.SetTextColor(conf.TextColor)
 	controls.reader.SetBackColor(conf.BackColor)
 	ui.ActivateControl(controls.mainWindow, controls.reader)
@@ -162,11 +165,11 @@ func createBookConfirm(controls *ControlList, conf *cf.Config) {
 // Creates and shows a book library dialog - available only if
 // library is ON
 func createBookListDialog(controls *ControlList, conf *cf.Config) {
-	controls.bookListWindow = ui.AddWindow(0, 0, 22, 7, "Book list")
+	controls.bookListWindow = ui.AddWindow(0, 0, 12, 7, "Book list")
 	controls.bookListWindow.SetPack(ui.Vertical)
 	controls.bookListWindow.SetModal(true)
 
-	controls.bookTable = ui.CreateTableView(controls.bookListWindow, 45, 24, 1)
+	controls.bookTable = ui.CreateTableView(controls.bookListWindow, minWidth, minHeight, 1)
 	controls.bookInfoDetail = ui.CreateLabel(controls.bookListWindow, 1, 1, "", ui.Fixed)
 	ui.ActivateControl(controls.bookListWindow, controls.bookTable)
 	controls.bookTable.SetShowLines(true)
